@@ -20,8 +20,9 @@ RUN buildDeps=' \
 	&& cd plate-vue \
 	&& git pull \
 	&& pwd \
-	&& ls \
+	&& ls ./ \
 	&& ls ../ \
+	&& ls ../../ \
 	&& cp ../config.js ./api/ \
 	&& cp -rf . .. \
 	&& cd .. \
