@@ -21,7 +21,8 @@ RUN buildDeps=' \
 	&& git pull \
 	&& pwd \
 	&& ls \
-	&& cp config.js ./api/ \
+	&& ls ../ \
+	&& cp ../config.js ./api/ \
 	&& cp -rf . .. \
 	&& cd .. \
 	&& rm -rf plate-vue \
