@@ -1,14 +1,20 @@
 FROM node:6.3-slim
+
 RUN groupadd user && useradd --create-home --home-dir /home/user -g user user
+
 ENV NODE_SOURCE /usr/src/
+
 WORKDIR $NODE_SOURCE
+
 COPY config.js /config.js
+
 RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y git \
 	&& apt-get install -y libhiredis-dev \
 	&& apt-get install -y node-gyp \
 	&& rm -rf /var/lib/apt/lists/*
+
 RUN buildDeps=' \
 	gcc \
 	make \
@@ -19,6 +25,7 @@ RUN buildDeps=' \
 	&& git clone https://github.com/mirror-media/plate-vue.git \
 	&& cd plate-vue \
 	&& git pull \
+	&& ls / \ 
 	&& pwd \
 	&& ls ./ \
 	&& ls ../ \
@@ -29,5 +36,6 @@ RUN buildDeps=' \
 	&& rm -rf plate-vue \
 	&& npm install \
 	&& npm run build
+
 EXPOSE 3000
 CMD ["npm", "start"]
