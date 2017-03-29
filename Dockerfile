@@ -25,12 +25,7 @@ RUN buildDeps=' \
 	&& git clone https://github.com/mirror-media/plate-vue.git \
 	&& cd plate-vue \
 	&& git pull \
-	&& ls / \ 
-	&& pwd \
-	&& ls ./ \
-	&& ls ../ \
-	&& ls ../../ \
-	&& cp ../config.js ./api/ \
+	&& cp /config.js ./api/ \
 	&& cp -rf . .. \
 	&& cd .. \
 	&& rm -rf plate-vue \
