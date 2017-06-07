@@ -7,6 +7,7 @@ ENV NODE_SOURCE /usr/src/
 WORKDIR $NODE_SOURCE
 
 COPY config.js /config.js
+COPY gcskeyfile.json /gcskeyfile.json
 
 RUN set -x \
 	&& apt-get update \
@@ -26,6 +27,7 @@ RUN buildDeps=' \
 	&& cd plate-vue \
 	&& git pull \
 	&& cp /config.js ./api/ \
+	&& cp /gcskeyfile.json ./gcskeyfile.json \
 	&& cp -rf . .. \
 	&& cd .. \
 	&& rm -rf plate-vue \
