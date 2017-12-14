@@ -23,7 +23,7 @@ RUN buildDeps=' \
 	' \
 	&& set -x \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
-	&& git clone https://github.com/mirror-media/plate-vue.git \
+	&& git clone -b dev https://github.com/mirror-media/plate-vue.git \
 	&& cd plate-vue \
 	&& git pull \
 	&& cp /config.js ./api/ \
